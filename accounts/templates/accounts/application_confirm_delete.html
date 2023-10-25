@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Удалить заявку</h1>
+
+<p>Вы уверены, что хотите удалить заявку: {{ application.title }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Да, удалить" />
+</form>
+<h1>{{ error }}</h1>
+{% endblock %}

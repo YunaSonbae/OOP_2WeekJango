@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block tilte %}Изменить заявку{% endblock %}
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.status|as_crispy_field }}
+        {{ form.category|as_crispy_field }}
+        {% if is_ready %}
+            {{ form.ready_design|as_crispy_field }}
+        {% endif %}
+        {% if is_load %}
+            {{ form.comment|as_crispy_field }}
+        {% endif %}
+        <input type="submit" value="Изменить" class="btn btn-success">
+    </form>
+{% endblock %}

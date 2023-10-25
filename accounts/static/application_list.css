@@ -1,0 +1,31 @@
+.block__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+    width: 100%;
+}
+.block__footer h1 {
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+}
+.block__footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px
+}
+.block__footer button {
+    width: 150px;
+    height: 50px;
+    background: #00BFFF;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    transition: 400ms;
+    cursor: pointer;
+}
+.block__footer button:hover {
+    background: #219653;
+}

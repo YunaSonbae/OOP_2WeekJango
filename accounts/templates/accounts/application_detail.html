@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'application_detail.css'%}">
+{% endblock %}
+{% block title %}Заявка{% endblock %}
+{% block content %}
+<h1>Название заявки: {{ application.title }}</h1>
+<h2>Описание: {{ application.desc }}</h2>
+<div class="block">
+    <img class="bd-placeholder-img flex-shrink-0 me-2 rounded"  src="../../..{{ application.img.url }}" alt="" width="700px">
+    {% if ready_design %}
+        <img class="bd-placeholder-img flex-shrink-0 me-2 rounded"  src="../../..{{ application.ready_design.url }}" alt="" width="700px">
+    {% endif %}
+</div>
+<h3>Комментарий:</h3>
+<p>{{ application.comment }}</p>
+<h3>{{ application.get_status_display }}, {{ application.get_category_display }}, {% if user.is_staff %}Пользователь : {{ application.user.get_username }}{% endif %}</h3>
+{% if user.is_staff %}<a href="{% url 'profile_application_update' application.id %}">Изменить</a>{% endif %}
+{% endblock %}

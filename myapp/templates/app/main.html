@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+{% block content %}
+{% if application_list %}
+<ul>
+
+    {% for application in application_list %}
+    <li class="my-3 p-3 bg-body rounded shadow-sm" >
+        <div>
+            <a class="border-bottom pb-2 mb-0" href="{{ application.get_absolute_url }}">{{ application.title }}</a>
+            <div class="d-flex text-muted pt-3" bis_skin_checked="1">        
+              <p class="pb-3 mb-0 small lh-sm border-bottom pl-3">
+                {{ application.desc }}
+              </p>
+              <img class="bd-placeholder-img flex-shrink-0 me-2 rounded"  src="..{{ application.img.url }}" alt="" width="50px" height="50px">
+            </div>
+            <small class="d-block text-end mt-3">
+              <a href="{% url 'profile_application_delete' application.id %}">Удалить</a>
+              <p>{{ application.get_status_display }}, {{ application.get_category_display }} {% if user.is_staff %}Пользователь : {{ application.user.get_username }}{% endif %}</p>
+            </small>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>There are no applications.</p>
+{% endif %} 
+{% endblock %}

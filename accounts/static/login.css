@@ -1,0 +1,21 @@
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+}
+#id_username, #id_password{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;
+    padding-left: 5px;
+    height: 30px;
+    width: 200px;
+}
+label{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}

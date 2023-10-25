@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{%block title%}Категории{%endblock%}
+{% block content %}
+        <link rel="stylesheet" href="{% static 'category_control.css'%}">
+
+</head>
+<body class="text-center">
+<div class="container">
+  <a class="" aria-current="page" href="{% url 'home' %}">Главная страница</a>
+  <a class="" href="{% url 'add_category' %}">Создать категорию</a><br><br>
+</div>
+     <div class="main">
+      <p><strong>Управление категориями:</strong></p>
+        {% for category in category_list %}
+          <div class="design">
+            <p><a href="{% url 'delete_category' category.id %}">Категория: {{category}}</a> </p>
+          </div>
+        {% endfor %}
+    </div>
+
+</body>
+{% endblock %}
+</html>
